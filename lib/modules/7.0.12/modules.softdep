@@ -1,0 +1,28 @@
+# Soft dependencies extracted from modules themselves.
+softdep cifs gcm
+softdep cifs ccm
+softdep cifs aead2
+softdep cifs cmac
+softdep cifs aes
+softdep cifs nls
+softdep cifs ecb
+softdep ksmbd pre: gcm
+softdep ksmbd pre: ccm
+softdep ksmbd pre: aead2
+softdep ksmbd pre: cmac
+softdep ksmbd pre: aes
+softdep ksmbd pre: nls
+softdep ksmbd pre: ecb
+softdep lrw pre: ecb
+softdep host1x post: tegra-drm
+softdep vc4 pre: snd-soc-hdmi-codec
+softdep mtk_dp pre: phy_mtk_dp
+softdep lima pre: governor_simpleondemand
+softdep panfrost pre: governor_simpleondemand
+softdep wm8994 pre: wm8994_regulator
+softdep csiostor pre: cxgb4
+softdep genet pre: mdio-bcm-unimac
+softdep r8169 pre: realtek
+softdep vfio post: vfio_iommu_type1 vfio_iommu_spapr_tce
+softdep xt_LOG pre: nf_log_syslog
+softdep xt_NFLOG pre: nfnetlink_log
