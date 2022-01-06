@@ -1,7 +1,7 @@
 # Linux kernel for NanoPi M4/M4v2
 
 ## Kernel version
-5.15.12
+5.15.13
 
 ## How to update
 ```bash
@@ -21,12 +21,12 @@ sudo dd if=uboot/m4v2/trust.bin of=/dev/mmcblk2 seek=24576
 # Linux
 sudo cp -a boot/* /boot/
 sudo cp -a lib/modules/* /lib/modules/
-sudo mkinitcpio -g /boot/initrd.img-5.15.12 -k 5.15.12
-sudo mkimage -A arm -O linux -T ramdisk -C none -a 0 -e 0 -n uInitrd -d /boot/initrd.img-5.15.12 /boot/uInitrd-5.15.12
+sudo mkinitcpio -g /boot/initrd.img-5.15.13 -k 5.15.13
+sudo mkimage -A arm -O linux -T ramdisk -C none -a 0 -e 0 -n uInitrd -d /boot/initrd.img-5.15.13 /boot/uInitrd-5.15.13
 sudo rm -f /boot/dtb /boot/Image /boot/uInitrd
-sudo ln -sf dtb-5.15.12 /boot/dtb
-sudo ln -sf vmlinuz-5.15.12 /boot/Image
-sudo ln -sf uInitrd-5.15.12 /boot/uInitrd
+sudo ln -sf dtb-5.15.13 /boot/dtb
+sudo ln -sf vmlinuz-5.15.13 /boot/Image
+sudo ln -sf uInitrd-5.15.13 /boot/uInitrd
 sudo chown -R root:root /boot /lib/modules
 ```
 
@@ -34,7 +34,7 @@ sudo chown -R root:root /boot /lib/modules
 ```bash
 git clone --depth 1 -b nanopi-m4 https://github.com/heiher/linux
 cd linux
-wget -O .config https://github.com/heiher/kernel-nanopi-m4/raw/master/boot/config-5.15.12
+wget -O .config https://github.com/heiher/kernel-nanopi-m4/raw/master/boot/config-5.15.13
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- menuconfig
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- Image modules
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- DTC_FLAGS="-@" dtbs
