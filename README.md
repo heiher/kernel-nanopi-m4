@@ -3,7 +3,7 @@
 **Important**: Make sure the CPU frequency governor on the NanoPi M4v2 is set to `performance`, otherwise the system may be unstable.
 
 ## Kernel version
-6.19.13
+6.19.14
 
 ## How to update
 ```bash
@@ -26,12 +26,12 @@ dd if=uboot/m4v2/trust.bin of=/dev/mmcblk2 seek=24576
 # Linux
 cp -a boot/* /boot/
 cp -a lib/modules/* /lib/modules/
-mkinitcpio -g /boot/initrd.img-6.19.13 -k 6.19.13
-mkimage -A arm -O linux -T ramdisk -C none -a 0 -e 0 -n uInitrd -d /boot/initrd.img-6.19.13 /boot/uInitrd-6.19.13
+mkinitcpio -g /boot/initrd.img-6.19.14 -k 6.19.14
+mkimage -A arm -O linux -T ramdisk -C none -a 0 -e 0 -n uInitrd -d /boot/initrd.img-6.19.14 /boot/uInitrd-6.19.14
 rm -f /boot/dtb /boot/Image /boot/uInitrd
-ln -sf dtb-6.19.13 /boot/dtb
-ln -sf vmlinuz-6.19.13 /boot/Image
-ln -sf uInitrd-6.19.13 /boot/uInitrd
+ln -sf dtb-6.19.14 /boot/dtb
+ln -sf vmlinuz-6.19.14 /boot/Image
+ln -sf uInitrd-6.19.14 /boot/uInitrd
 chown -R root:root /boot /lib/modules
 ```
 
@@ -39,7 +39,7 @@ chown -R root:root /boot /lib/modules
 ```bash
 git clone --depth 1 -b nanopi-m4 https://github.com/heiher/linux
 cd linux
-wget -O .config https://github.com/heiher/kernel-nanopi-m4/raw/master/boot/config-6.19.13
+wget -O .config https://github.com/heiher/kernel-nanopi-m4/raw/master/boot/config-6.19.14
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- menuconfig
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- Image modules
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- DTC_FLAGS="-@" dtbs
