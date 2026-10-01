@@ -1,0 +1,5 @@
+verbosity=1
+overlay_prefix=rockchip
+rootdev=/dev/mmcblk2p1
+rootfstype=ext4
+usbstoragequirks=0x2537:0x1066:u,0x2537:0x1068:u
